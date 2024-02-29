@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>clock</title>
+    <style>
+        .btn {
+            border: 2px solid black;
+            padding: 10px;
+            justify-content: center;
+            /* display: flexbox; */
+            border-radius: 5px;
+            margin: 25px;
+            background: yellowgreen;
+            color: aqua;
+            font-weight: 900;
+            /* height:auto; */
+
+        }
+
+        #clock {
+            height: 35px;
+            width: 100px;
+            background: yellow;
+            position: relative;
+            top: 100px;
+            margin: auto;
+            border: 2px solid black;
+            border-radius: 5px;
+            color: black;
+
+
+        }
+    </style>
+</head>
+
+<body>
+    <nav>
+        <span class="btn" id="Start">Start </span>
+        <span class="btn" id="Stop">Stop</span>
+
+
+    </nav>
+    <div id="clock"></div>
+    <script>
+        let Start = document.querySelector("#Start");
+        let Stop = document.querySelector("#Stop");
+        let result = document.querySelector("#clock");
+        let event = "Active";
+
+        Stop.addEventListener("click", () => {
+            result.textContent = "";
+            console.log("code stoped !")
+            event = "stop";
+        })
+
+
+        Start.addEventListener("click", () => {
+            event = "Active";
+            setInterval(() => {
+                let date = new Date();
+                if (event == "Active") {
+                    date = date.toLocaleTimeString()
+                    result.textContent = date;
+                    console.log("code running")
+                }
+            }, 1000)
+
+        });
+
+    </script>
+</body>
+
+</html>
